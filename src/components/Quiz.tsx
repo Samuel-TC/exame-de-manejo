@@ -14,8 +14,21 @@ export interface AnswerRecord {
     selected: number | null // null = timed out
 }
 
+function shuffleOptions(q: Question): Question {
+    const indexed = q.options.map((opt, i) => ({ opt, isCorrect: i === q.correctIndex }))
+    indexed.sort(() => Math.random() - 0.5)
+    return {
+        ...q,
+        options: indexed.map(x => x.opt),
+        correctIndex: indexed.findIndex(x => x.isCorrect),
+    }
+}
+
 function pickQuestions(count: number): Question[] {
-    return [...allQuestions].sort(() => Math.random() - 0.5).slice(0, count)
+    return [...allQuestions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, count)
+        .map(shuffleOptions)
 }
 
 export default function Quiz() {
