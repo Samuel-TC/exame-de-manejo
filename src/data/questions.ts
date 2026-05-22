@@ -26,6 +26,7 @@ export const questions: Question[] = [
         ],
         correctIndex: 0,
         explanation: 'Adelantar en lugares peligrosos como curvas, puentes, túneles, intersecciones o cruces de ferrocarril e invadir carriles separados por línea continua son faltas gravísimas de Categoría A.',
+        image: new URL('../assets/img/adelantamiento-zona-prohibida.png', import.meta.url).href,
     },
     {
         id: 3,
@@ -75,7 +76,7 @@ export const questions: Question[] = [
         options: ['Línea blanca discontinua', 'Línea de barrera continua', 'Línea de canalización', 'Línea de borde exterior'],
         correctIndex: 1,
         explanation: 'La línea de barrera continua prohíbe la invasión del carril contrario para efectuar maniobras de adelantamiento.',
-        image: new URL('../assets/linea-continua.jpg', import.meta.url).href,
+        image: new URL('../assets/img/linea-canalizacion-alto.png', import.meta.url).href,
     },
     {
         id: 10,
@@ -95,6 +96,7 @@ export const questions: Question[] = [
         ],
         correctIndex: 0,
         explanation: 'Los vehículos que ya se encuentran circulando dentro de la rotonda tienen prioridad de paso absoluta sobre los que intentan ingresar.',
+        image: new URL('../assets/img/rotonda-circulacion.png', import.meta.url).href,
     },
     {
         id: 12,
@@ -195,6 +197,7 @@ export const questions: Question[] = [
         ],
         correctIndex: 1,
         explanation: 'Salvo en vías con múltiples carriles claramente demarcados en el mismo sentido, adelantar por la derecha o usar el espaldón es ilegal y sumamente peligroso.',
+        image: new URL('../assets/img/adelantamiento-lateral-peligroso.png', import.meta.url).href,
     },
     {
         id: 22,
@@ -266,6 +269,7 @@ export const questions: Question[] = [
         options: ['0.5 metros', '1.0 metro', '1.5 metros', '2.0 metros'],
         correctIndex: 2,
         explanation: 'Por motivos de seguridad vial y protección al usuario vulnerable, la ley exige separación lateral mínima de 1.5 metros al adelantar ciclistas.',
+        image: new URL('../assets/img/distancia-minima-ciclista.png', import.meta.url).href,
     },
     {
         id: 30,
@@ -321,6 +325,7 @@ export const questions: Question[] = [
         ],
         correctIndex: 2,
         explanation: 'La cuadrícula amarilla prohíbe quedar detenido dentro de la intersección bloqueando el flujo transversal aunque el semáforo esté en verde.',
+        image: new URL('../assets/img/cuadricula-amarilla-interseccion.png', import.meta.url).href,
     },
     {
         id: 35,
@@ -460,6 +465,7 @@ export const questions: Question[] = [
         ],
         correctIndex: 0,
         explanation: 'El peatón es el usuario más vulnerable de la vía pública; en zonas de paso peatonal demarcadas, goza de prioridad de paso total sobre los vehículos.',
+        image: new URL('../assets/img/paso-peatonal-cebra.png', import.meta.url).href,
     },
     {
         id: 52,
@@ -555,6 +561,7 @@ export const questions: Question[] = [
         options: ['Menos de 50 metros', 'Menos de 150 metros', 'Menos de 300 metros', 'Menos de 100 metros'],
         correctIndex: 1,
         explanation: 'Para adelantar con seguridad invadiendo el carril contrario, se requiere contar con una visibilidad despejada hacia el frente de al menos 150 metros.',
+        image: new URL('../assets/img/distancia-seguimiento-adelantar.png', import.meta.url).href,
     },
     {
         id: 62,
@@ -681,6 +688,7 @@ export const questions: Question[] = [
         ],
         correctIndex: 0,
         explanation: 'La invasión prolongada de carriles exclusivos de transporte público es sancionable; solo se permite cruzarlos de forma puntual para maniobras de giro indicadas.',
+        image: new URL('../assets/img/carril-exclusivo-bus.png', import.meta.url).href,
     },
     {
         id: 75,
@@ -2963,5 +2971,161 @@ export const questions: Question[] = [
         ],
         correctIndex: 1,
         explanation: 'En la Ley de Tránsito costarricense, la acumulación de puntos en la licencia se aplica únicamente a las faltas gravísimas de la Categoría A (6 puntos) y Categoría B (4 puntos). Las Categorías C, D y E son de sanción estrictamente económica.',
-    }
+    },
+    {
+        id: 301,
+        question: '¿Qué se entiende por "calzada" según el Manual de Conductor de Costa Rica?',
+        options: [
+            'El espacio de tierra o grava que bordea el asfalto',
+            'La parte de la vía pública destinada a la circulación de vehículos, demarcada y pavimentada',
+            'La acera por donde transitan los peatones',
+            'El canal de drenaje lateral de la carretera'
+        ],
+        correctIndex: 1,
+        explanation: 'La calzada es la franja pavimentada de la vía destinada al tránsito de vehículos; excluye las aceras, espaldones y cunetas.',
+        image: new URL('../assets/img/calzada-definicion.png', import.meta.url).href,
+    },
+    {
+        id: 302,
+        question: '¿Cómo se define un "carril de circulación" en la vía pública?',
+        options: [
+            'Toda la anchura total de la calzada de extremo a extremo',
+            'Cada una de las franjas longitudinales en que puede dividirse la calzada, con ancho suficiente para la circulación de una fila de vehículos',
+            'El espaldón pavimentado reservado para emergencias',
+            'La acera ampliada para uso compartido de bicicletas y peatones'
+        ],
+        correctIndex: 1,
+        explanation: 'Un carril es una subdivisión longitudinal de la calzada delimitada por marcas viales, con ancho mínimo para el tránsito de una sola fila vehicular.',
+        image: new URL('../assets/img/carril-circulacion-definicion.png', import.meta.url).href,
+    },
+    {
+        id: 303,
+        question: '¿Qué es el "espaldón" de una carretera?',
+        options: [
+            'El carril central reservado para giros a la izquierda',
+            'La franja pavimentada o no, adyacente a la calzada, destinada a emergencias y no al tránsito regular de vehículos',
+            'La línea de borde blanca pintada en el asfalto',
+            'El puente peatonal elevado que cruza la vía'
+        ],
+        correctIndex: 1,
+        explanation: 'El espaldón es una zona lateral junto a la calzada que sirve de refugio en emergencias; circular por él de forma habitual está prohibido salvo para giros inmediatos.',
+        image: new URL('../assets/img/espaldon-definicion.png', import.meta.url).href,
+    },
+    {
+        id: 304,
+        question: '¿Qué es la "cuneta" en el contexto de una vía pública?',
+        options: [
+            'El bordillo de concreto que separa la acera de la calzada',
+            'El canal longitudinal abierto o cerrado a los lados de la carretera para recolectar y evacuar el agua de lluvia',
+            'La franja amarilla pintada en el borde de la calzada',
+            'La rampa de acceso a un estacionamiento'
+        ],
+        correctIndex: 1,
+        explanation: 'La cuneta es la zanja de drenaje lateral que evita que el agua de lluvia inunde la calzada; transitarla o estacionarse sobre ella está prohibido.',
+        image: new URL('../assets/img/cuneta-definicion.png', import.meta.url).href,
+    },
+    {
+        id: 305,
+        question: '¿Qué es un "carril reversible" y cómo se identifica?',
+        options: [
+            'Un carril que sólo pueden usar los vehículos de retroceso o en reversa',
+            'Un carril cuyo sentido de circulación puede cambiar según la hora del día, identificado con señales especiales y flechas variables',
+            'Un carril exclusivo para motocicletas en horario nocturno',
+            'Un carril de aceleración al incorporarse a una autopista'
+        ],
+        correctIndex: 1,
+        explanation: 'El carril reversible permite gestionar el flujo vehicular alternando su dirección en horas pico; se señaliza con semáforos o flechas de dirección variable suspendidos sobre la vía.',
+        image: new URL('../assets/img/carril-reversible.png', import.meta.url).href,
+    },
+    {
+        id: 306,
+        question: '¿Qué indica la marcación "BUS" pintada en el pavimento de un carril?',
+        options: [
+            'Que los autobuses deben detenerse obligatoriamente en ese punto',
+            'Que ese carril es de uso exclusivo para autobuses de transporte público',
+            'Que los autobuses tienen prohibido circular por ese carril',
+            'Que se aproxima una parada de autobús en 100 metros'
+        ],
+        correctIndex: 1,
+        explanation: 'La demarcación "BUS" o "BUS SOLO" sobre el pavimento reserva ese carril para el tránsito exclusivo de autobuses de servicio público; su invasión por otros vehículos es sancionable.',
+        image: new URL('../assets/img/parada-autobus-marcacion.png', import.meta.url).href,
+    },
+    {
+        id: 307,
+        question: '¿Qué es una "acera" y para quién está destinada?',
+        options: [
+            'La franja del carril más a la derecha reservada para bicicletas',
+            'La zona elevada o demarcada a los lados de la calzada destinada exclusivamente al tránsito peatonal',
+            'El espaldón mejorado donde pueden circular vehículos lentos',
+            'La zona de estacionamiento adyacente a edificios comerciales'
+        ],
+        correctIndex: 1,
+        explanation: 'La acera es el espacio elevado o delimitado lateral a la calzada por donde deben transitar los peatones; los vehículos tienen prohibido estacionarse o circular sobre ellas.',
+        image: new URL('../assets/img/acera-peatones.png', import.meta.url).href,
+    },
+    {
+        id: 308,
+        question: '¿Dónde debe transitar un peatón cuando no existe acera o zona peatonal habilitada en la vía?',
+        options: [
+            'Por el centro de la calzada para ser más visible',
+            'Por el espaldón o extremo de la calzada, caminando en sentido contrario al tráfico para ver los vehículos que se aproximan',
+            'Por el carril más a la derecha en el mismo sentido que los vehículos',
+            'No puede circular por esa vía bajo ninguna circunstancia'
+        ],
+        correctIndex: 1,
+        explanation: 'A falta de acera, el peatón debe caminar por el borde izquierdo (espaldón) en sentido contrario al tráfico para mantener contacto visual con los vehículos que se acercan.',
+        image: new URL('../assets/img/acera-lateral.png', import.meta.url).href,
+    },
+    {
+        id: 309,
+        question: '¿Qué es un "paso peatonal elevado" o puente peatonal?',
+        options: [
+            'Una acera especialmente ancha para zonas turísticas',
+            'Una estructura elevada que permite a los peatones cruzar la vía por encima del tráfico vehicular de forma segura',
+            'Un semáforo exclusivo para ciclistas y peatones simultáneamente',
+            'Una rampa de acceso a estacionamientos para personas con movilidad reducida'
+        ],
+        correctIndex: 1,
+        explanation: 'El paso peatonal elevado o puente peatonal es una infraestructura que segrega verticalmente el flujo de peatones del tráfico vehicular, eliminando el cruce a nivel de calzada.',
+        image: new URL('../assets/img/paso-peatonal-elevado.png', import.meta.url).href,
+    },
+    {
+        id: 310,
+        question: '¿Qué indica la marcación "SOLO" en un carril demarcado para bicicletas en la vía pública?',
+        options: [
+            'Que solo puede circular una bicicleta a la vez en ese carril',
+            'Que ese carril es de uso exclusivo para ciclistas; los vehículos motorizados no pueden transitarlo',
+            'Que el ciclista debe circular solo, sin compañía de otros ciclistas',
+            'Que el carril está habilitado solamente durante horas de luz solar'
+        ],
+        correctIndex: 1,
+        explanation: 'La demarcación "SOLO" junto al símbolo de bicicleta reserva ese carril únicamente para el tránsito de ciclistas; invadirlo con un vehículo motorizado es una infracción.',
+        image: new URL('../assets/img/carril-bicicleta-solo.png', import.meta.url).href,
+    },
+    {
+        id: 311,
+        question: '¿Cuáles se consideran "usuarios vulnerables" de la vía pública?',
+        options: [
+            'Únicamente los adultos mayores que conducen vehículos automáticos',
+            'Los peatones, ciclistas y motociclistas, por carecer de la protección estructural que brinda la carrocería de un automóvil',
+            'Solo los niños menores de 5 años que van en silla de bebé',
+            'Los conductores de vehículos de carga pesada por el mayor riesgo de volcamiento'
+        ],
+        correctIndex: 1,
+        explanation: 'Los usuarios vulnerables son quienes circulan sin la protección de la carrocería de un automóvil: peatones, ciclistas y motociclistas. La ley exige que los conductores extremen precauciones ante su presencia.',
+        image: new URL('../assets/img/usuarios-vulnerables-via.png', import.meta.url).href,
+    },
+    {
+        id: 312,
+        question: '¿Qué situación representa una maniobra de adelantamiento incorrecta que puede generar una colisión lateral?',
+        options: [
+            'Adelantar por la izquierda en una recta con visibilidad de 200 metros',
+            'Invadir el carril contiguo sin señalizar y sin verificar el ángulo muerto, generando contacto lateral con el vehículo adyacente',
+            'Adelantar en autopista cuando el vehículo delantero circula a menos de 80 km/h',
+            'Señalizar con anticipación de 30 metros antes de cambiar de carril'
+        ],
+        correctIndex: 1,
+        explanation: 'El cambio de carril sin verificar el ángulo muerto y sin señalización previa es una de las principales causas de colisiones laterales en carretera.',
+        image: new URL('../assets/img/bus-carril-incorrecto.png', import.meta.url).href,
+    },
 ];
