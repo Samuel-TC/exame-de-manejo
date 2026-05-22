@@ -1,7 +1,7 @@
 export interface ExamConfig {
     timePerQuestion: 10 | 20 | null
     showFeedback: boolean
-    questionCount: 5 | 10
+    questionCount: 5 | 10 | 20 | 30 | 40
 }
 
 export const defaultConfig: ExamConfig = {

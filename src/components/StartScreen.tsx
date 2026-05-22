@@ -73,7 +73,7 @@ export default function StartScreen({ onStart }: Props) {
                         Número de preguntas
                     </div>
                     <div className={styles.btnGroup}>
-                        {([5, 10] as (5 | 10)[]).map((n) => (
+                        {([5, 10, 20, 30, 40] as (5 | 10 | 20 | 30 | 40)[]).map((n) => (
                             <button
                                 key={n}
                                 className={`${styles.segBtn} ${config.questionCount === n ? styles.segBtnActive : ''}`}
