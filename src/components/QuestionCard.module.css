@@ -15,6 +15,12 @@
     margin-bottom: 0.5rem;
 }
 
+.topBarRight {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .progressLabel {
     font-size: 0.8rem;
     color: var(--gh-text-muted);
@@ -171,6 +177,26 @@
 .nextBtn:hover {
     background-color: var(--gh-btn-secondary-hover);
     border-color: var(--gh-text-muted);
+}
+
+.endBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.6rem;
+    background: transparent;
+    color: var(--gh-text-muted);
+    font-size: 0.75rem;
+    border: 1px solid var(--gh-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.endBtn:hover {
+    color: var(--gh-danger);
+    border-color: var(--gh-danger);
+    background: rgba(248, 81, 73, 0.08);
 }
 
 /* ── Timer ── */

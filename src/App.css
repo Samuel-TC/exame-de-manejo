@@ -48,3 +48,78 @@ body {
         padding: 2rem 1rem;
     }
 }
+
+/* ── Confirmation Modal ── */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 1rem;
+    backdrop-filter: blur(2px);
+}
+
+.modalBox {
+    background: var(--gh-surface);
+    border: 1px solid var(--gh-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.modalTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--gh-text);
+}
+
+.modalMsg {
+    font-size: 0.875rem;
+    color: var(--gh-text-muted);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+.modalActions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.modalCancel {
+    padding: 0.5rem 1rem;
+    background: var(--gh-btn-secondary-bg);
+    color: var(--gh-text);
+    border: 1px solid var(--gh-btn-secondary-border);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.modalCancel:hover {
+    background: var(--gh-btn-secondary-hover);
+    border-color: var(--gh-text-muted);
+}
+
+.modalConfirm {
+    padding: 0.5rem 1rem;
+    background: var(--gh-danger-bg);
+    color: var(--gh-danger);
+    border: 1px solid var(--gh-danger);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.modalConfirm:hover {
+    background: rgba(248, 81, 73, 0.2);
+}

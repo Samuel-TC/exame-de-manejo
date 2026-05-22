@@ -99,6 +99,17 @@ export default function Quiz() {
         setAnswered(false)
     }
 
+    const [showEndModal, setShowEndModal] = useState(false)
+
+    function handleEnd() {
+        setShowEndModal(true)
+    }
+
+    function confirmEnd() {
+        setShowEndModal(false)
+        setStage('result')
+    }
+
     function handleSelect(index: number) {
         if (answered) return
         setSelectedAnswer(index)
@@ -117,6 +128,19 @@ export default function Quiz() {
     )
 
     return (
+        <>
+        {showEndModal && (
+            <div className="modalOverlay">
+                <div className="modalBox">
+                    <h3 className="modalTitle">¿Terminar el examen?</h3>
+                    <p className="modalMsg">Las preguntas que no hayas respondido contarán como incorrectas.</p>
+                    <div className="modalActions">
+                        <button className="modalCancel" onClick={() => setShowEndModal(false)}>Cancelar</button>
+                        <button className="modalConfirm" onClick={confirmEnd}>Sí, terminar</button>
+                    </div>
+                </div>
+            </div>
+        )}
         <QuestionCard
             question={examQuestions[currentIndex]}
             questionNumber={currentIndex + 1}
@@ -128,6 +152,8 @@ export default function Quiz() {
             timeLimit={config.timePerQuestion}
             onSelect={handleSelect}
             onNext={() => advanceToNext(selectedAnswer)}
+            onEnd={handleEnd}
         />
+        </>
     )
 }

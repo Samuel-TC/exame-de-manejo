@@ -1,4 +1,4 @@
-import { CheckCircle2, XCircle, ChevronRight, AlertCircle, Clock } from 'lucide-react'
+import { CheckCircle2, XCircle, ChevronRight, AlertCircle, Clock, LogOut } from 'lucide-react'
 import type { Question } from '../data/questions'
 import styles from './QuestionCard.module.css'
 
@@ -13,6 +13,7 @@ interface Props {
     timeLimit: 10 | 20 | null
     onSelect: (index: number) => void
     onNext: () => void
+    onEnd: () => void
 }
 
 export default function QuestionCard({
@@ -26,6 +27,7 @@ export default function QuestionCard({
     timeLimit,
     onSelect,
     onNext,
+    onEnd,
 }: Props) {
     const isCorrect = selectedAnswer === question.correctIndex
     const timedOut = answered && selectedAnswer === null
@@ -62,14 +64,19 @@ export default function QuestionCard({
                 <span className={styles.progressLabel}>
                     Pregunta <strong>{questionNumber}</strong> de {total}
                 </span>
-                {timeLeft !== null ? (
-                    <span className={`${styles.timerBadge} ${timerColorClass}`}>
-                        <Clock size={12} />
-                        {timeLeft}s
-                    </span>
-                ) : (
-                    <span className={styles.progressFraction}>{Math.round((questionNumber / total) * 100)}%</span>
-                )}
+                <div className={styles.topBarRight}>
+                    {timeLeft !== null ? (
+                        <span className={`${styles.timerBadge} ${timerColorClass}`}>
+                            <Clock size={12} />
+                            {timeLeft}s
+                        </span>
+                    ) : (
+                        <span className={styles.progressFraction}>{Math.round((questionNumber / total) * 100)}%</span>
+                    )}
+                    <button className={styles.endBtn} onClick={onEnd} title="Terminar examen">
+                        <LogOut size={14} />
+                    </button>
+                </div>
             </div>
 
             <div className={styles.progressBar}>
