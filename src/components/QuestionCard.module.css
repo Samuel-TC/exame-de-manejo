@@ -1,40 +1,52 @@
 .card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 700px;
+  background: var(--gh-surface);
+  border: 1px solid var(--gh-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  max-width: 560px;
   width: 100%;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
 }
 
-.progress {
-  font-size: 0.85rem;
-  color: #666;
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 0.5rem;
+}
+
+.progressLabel {
+  font-size: 0.8rem;
+  color: var(--gh-text-muted);
+}
+
+.progressFraction {
+  font-size: 0.8rem;
+  color: var(--gh-text-muted);
 }
 
 .progressBar {
   width: 100%;
-  height: 8px;
-  background: #e2e8f0;
+  height: 4px;
+  background: var(--gh-border-muted);
   border-radius: 99px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   overflow: hidden;
 }
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  background: var(--gh-accent);
   border-radius: 99px;
   transition: width 0.4s ease;
 }
 
 .question {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
+  color: var(--gh-text);
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .options {
@@ -43,28 +55,28 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .option {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 10px;
-  background: #f8fafc;
-  font-size: 0.95rem;
-  color: #334155;
+  gap: 0.65rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  background: var(--gh-surface-2);
+  font-size: 0.875rem;
+  color: var(--gh-text);
   cursor: pointer;
   text-align: left;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.15s, background 0.15s;
 }
 
 .option:hover:not(:disabled) {
-  border-color: #3b82f6;
-  background: #eff6ff;
+  border-color: var(--gh-accent);
+  background: #1c2742;
 }
 
 .option:disabled {
@@ -72,70 +84,98 @@
 }
 
 .correct {
-  border-color: #22c55e;
-  background: #f0fdf4;
-  color: #15803d;
+  border-color: var(--gh-success) !important;
+  background: var(--gh-success-bg) !important;
+  color: var(--gh-success);
 }
 
 .wrong {
-  border-color: #ef4444;
-  background: #fef2f2;
-  color: #b91c1c;
+  border-color: var(--gh-danger) !important;
+  background: var(--gh-danger-bg) !important;
+  color: var(--gh-danger);
 }
 
 .optionLetter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #e2e8f0;
-  font-weight: 700;
-  font-size: 0.8rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: var(--gh-border);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--gh-text-muted);
+  flex-shrink: 0;
+}
+
+.optionText {
+  flex: 1;
+}
+
+.iconCorrect {
+  color: var(--gh-success);
+  flex-shrink: 0;
+}
+
+.iconWrong {
+  color: var(--gh-danger);
   flex-shrink: 0;
 }
 
 .feedbackCorrect,
 .feedbackWrong {
-  margin-top: 1.25rem;
-  padding: 1rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
 .feedbackCorrect {
-  background: #f0fdf4;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
+  background: var(--gh-success-bg);
+  color: var(--gh-success);
+  border: 1px solid #2ea04326;
 }
 
 .feedbackWrong {
-  background: #fef2f2;
-  color: #991b1b;
-  border: 1px solid #fecaca;
+  background: var(--gh-danger-bg);
+  color: var(--gh-danger);
+  border: 1px solid #f8514926;
 }
 
-.feedbackCorrect p,
-.feedbackWrong p {
-  margin: 0.4rem 0 0;
+.feedbackTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.feedbackText {
+  color: var(--gh-text-muted);
+  font-size: 0.82rem;
 }
 
 .nextBtn {
-  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
   width: 100%;
-  padding: 0.9rem;
-  background: linear-gradient(90deg, #3b82f6, #6366f1);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
+  padding: 0.625rem 1rem;
+  background-color: var(--gh-btn-secondary-bg);
+  color: var(--gh-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--gh-btn-secondary-border);
+  border-radius: 6px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background-color 0.15s, border-color 0.15s;
 }
 
 .nextBtn:hover {
-  opacity: 0.9;
+  background-color: var(--gh-btn-secondary-hover);
+  border-color: var(--gh-text-muted);
 }

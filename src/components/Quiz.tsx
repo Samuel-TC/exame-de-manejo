@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { questions } from '../data/questions'
-import QuestionCard from './QuestionCard'
-import ResultScreen from './ResultScreen'
-import StartScreen from './StartScreen'
+import QuestionCard from './QuestionCard.tsx'
+import ResultScreen from './ResultScreen.tsx'
+import StartScreen from './StartScreen.tsx'
 
 type Stage = 'start' | 'quiz' | 'result'
 

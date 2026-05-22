@@ -1,58 +1,94 @@
 .container {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 3rem 2rem;
-  max-width: 500px;
+  background: var(--gh-surface);
+  border: 1px solid var(--gh-border);
+  border-radius: 12px;
+  padding: 1.75rem 1.25rem;
+  max-width: 480px;
   width: 100%;
-  text-align: center;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
 }
 
-.icon {
-  font-size: 4rem;
+.header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: var(--gh-surface-2);
+  border: 1px solid var(--gh-border);
+  border-radius: 12px;
+  color: var(--gh-accent);
   margin-bottom: 1rem;
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gh-text);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .subtitle {
-  color: #64748b;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  color: var(--gh-text-muted);
+  font-size: 0.875rem;
   line-height: 1.6;
+}
+
+.divider {
+  height: 1px;
+  background: var(--gh-border-muted);
+  margin-bottom: 1.25rem;
 }
 
 .info {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem;
+  margin: 0 0 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
 }
 
-.info li {
-  font-size: 0.95rem;
-  color: #475569;
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--gh-text-muted);
+  padding: 0.5rem 0.75rem;
+  background: var(--gh-surface-2);
+  border: 1px solid var(--gh-border-muted);
+  border-radius: 6px;
+}
+
+.infoIcon {
+  color: var(--gh-success);
+  flex-shrink: 0;
 }
 
 .startBtn {
-  padding: 0.9rem 2.5rem;
-  background: linear-gradient(90deg, #3b82f6, #6366f1);
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background-color: var(--gh-btn-primary-bg);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(240,246,252,0.1);
+  border-radius: 6px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background-color 0.15s;
 }
 
 .startBtn:hover {
-  opacity: 0.9;
+  background-color: var(--gh-btn-primary-hover);
 }
