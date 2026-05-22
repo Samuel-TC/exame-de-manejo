@@ -1,60 +1,133 @@
-import { useState } from 'react'
-import { questions } from '../data/questions'
+import { useState, useEffect, useRef } from 'react'
+import { questions as allQuestions } from '../data/questions'
+import type { Question } from '../data/questions'
+import type { ExamConfig } from '../types/config'
+import { defaultConfig } from '../types/config'
 import QuestionCard from './QuestionCard.tsx'
 import ResultScreen from './ResultScreen.tsx'
 import StartScreen from './StartScreen.tsx'
 
 type Stage = 'start' | 'quiz' | 'result'
 
+export interface AnswerRecord {
+    question: Question
+    selected: number | null // null = timed out
+}
+
+function pickQuestions(count: number): Question[] {
+    return [...allQuestions].sort(() => Math.random() - 0.5).slice(0, count)
+}
+
 export default function Quiz() {
-  const [stage, setStage] = useState<Stage>('start')
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [score, setScore] = useState(0)
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
-  const [showFeedback, setShowFeedback] = useState(false)
+    const [stage, setStage] = useState<Stage>('start')
+    const [config, setConfig] = useState<ExamConfig>(defaultConfig)
+    const [examQuestions, setExamQuestions] = useState<Question[]>(allQuestions)
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [score, setScore] = useState(0)
+    const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
+    const [answered, setAnswered] = useState(false)
+    const [timeLeft, setTimeLeft] = useState<number | null>(null)
 
-  const currentQuestion = questions[currentIndex]
-  const total = questions.length
+    // useRef guarantees answers are always current when stage flips to 'result'
+    const answersRef = useRef<AnswerRecord[]>([])
+    // Keep fresh refs to avoid stale closures in effects
+    const currentIndexRef = useRef(currentIndex)
+    const currentQuestionRef = useRef(examQuestions[currentIndex])
+    const totalRef = useRef(examQuestions.length)
 
-  function handleStart() {
-    setStage('quiz')
-    setCurrentIndex(0)
-    setScore(0)
-    setSelectedAnswer(null)
-    setShowFeedback(false)
-  }
+    currentIndexRef.current = currentIndex
+    currentQuestionRef.current = examQuestions[currentIndex]
+    totalRef.current = examQuestions.length
 
-  function handleSelect(index: number) {
-    if (showFeedback) return
-    setSelectedAnswer(index)
-    setShowFeedback(true)
-    if (index === currentQuestion.correctIndex) {
-      setScore((s) => s + 1)
+    const total = examQuestions.length
+
+    // Reset and start timer on each new question
+    useEffect(() => {
+        if (stage !== 'quiz' || answered || config.timePerQuestion === null) {
+            setTimeLeft(null)
+            return
+        }
+        setTimeLeft(config.timePerQuestion)
+        const interval = setInterval(() => {
+            setTimeLeft(prev => (prev !== null && prev > 0 ? prev - 1 : 0))
+        }, 1000)
+        return () => clearInterval(interval)
+    }, [currentIndex, stage]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Time's up → mark wrong and auto-advance after 1.2s
+    useEffect(() => {
+        if (timeLeft !== 0 || stage !== 'quiz' || answered) return
+        setAnswered(true)
+        const t = setTimeout(() => {
+            const idx = currentIndexRef.current
+            const q = currentQuestionRef.current
+            const tot = totalRef.current
+            answersRef.current = [...answersRef.current, { question: q, selected: null }]
+            if (idx + 1 < tot) {
+                setCurrentIndex(idx + 1)
+                setSelectedAnswer(null)
+                setAnswered(false)
+            } else {
+                setStage('result')
+            }
+        }, 1200)
+        return () => clearTimeout(t)
+    }, [timeLeft, stage, answered])
+
+    function advanceToNext(recordedAnswer: number | null) {
+        answersRef.current = [
+            ...answersRef.current,
+            { question: examQuestions[currentIndex], selected: recordedAnswer },
+        ]
+        if (currentIndex + 1 < total) {
+            setCurrentIndex(i => i + 1)
+            setSelectedAnswer(null)
+            setAnswered(false)
+        } else {
+            setStage('result')
+        }
     }
-  }
 
-  function handleNext() {
-    if (currentIndex + 1 < total) {
-      setCurrentIndex((i) => i + 1)
-      setSelectedAnswer(null)
-      setShowFeedback(false)
-    } else {
-      setStage('result')
+    function handleStart(cfg: ExamConfig) {
+        answersRef.current = []
+        setConfig(cfg)
+        setExamQuestions(pickQuestions(cfg.questionCount))
+        setStage('quiz')
+        setCurrentIndex(0)
+        setScore(0)
+        setSelectedAnswer(null)
+        setAnswered(false)
     }
-  }
 
-  if (stage === 'start') return <StartScreen onStart={handleStart} />
-  if (stage === 'result') return <ResultScreen score={score} total={total} onRestart={handleStart} />
+    function handleSelect(index: number) {
+        if (answered) return
+        setSelectedAnswer(index)
+        if (index === examQuestions[currentIndex].correctIndex) setScore(s => s + 1)
+        setAnswered(true)
+    }
 
-  return (
-    <QuestionCard
-      question={currentQuestion}
-      questionNumber={currentIndex + 1}
-      total={total}
-      selectedAnswer={selectedAnswer}
-      showFeedback={showFeedback}
-      onSelect={handleSelect}
-      onNext={handleNext}
-    />
-  )
+    if (stage === 'start') return <StartScreen onStart={handleStart} />
+    if (stage === 'result') return (
+        <ResultScreen
+            score={score}
+            total={total}
+            answers={answersRef.current}
+            onRestart={() => setStage('start')}
+        />
+    )
+
+    return (
+        <QuestionCard
+            question={examQuestions[currentIndex]}
+            questionNumber={currentIndex + 1}
+            total={total}
+            selectedAnswer={selectedAnswer}
+            answered={answered}
+            showFeedback={config.showFeedback}
+            timeLeft={timeLeft}
+            timeLimit={config.timePerQuestion}
+            onSelect={handleSelect}
+            onNext={() => advanceToNext(selectedAnswer)}
+        />
+    )
 }

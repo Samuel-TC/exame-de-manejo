@@ -1,181 +1,231 @@
 .card {
-  background: var(--gh-surface);
-  border: 1px solid var(--gh-border);
-  border-radius: 12px;
-  padding: 1.25rem;
-  max-width: 560px;
-  width: 100%;
-  margin-top: 1rem;
+    background: var(--gh-surface);
+    border: 1px solid var(--gh-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    max-width: 560px;
+    width: 100%;
+    margin-top: 1rem;
 }
 
 .topBar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
 }
 
 .progressLabel {
-  font-size: 0.8rem;
-  color: var(--gh-text-muted);
+    font-size: 0.8rem;
+    color: var(--gh-text-muted);
 }
 
 .progressFraction {
-  font-size: 0.8rem;
-  color: var(--gh-text-muted);
+    font-size: 0.8rem;
+    color: var(--gh-text-muted);
 }
 
 .progressBar {
-  width: 100%;
-  height: 4px;
-  background: var(--gh-border-muted);
-  border-radius: 99px;
-  margin-bottom: 1.25rem;
-  overflow: hidden;
+    width: 100%;
+    height: 4px;
+    background: var(--gh-border-muted);
+    border-radius: 99px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
 }
 
 .progressFill {
-  height: 100%;
-  background: var(--gh-accent);
-  border-radius: 99px;
-  transition: width 0.4s ease;
+    height: 100%;
+    background: var(--gh-accent);
+    border-radius: 99px;
+    transition: width 0.4s ease;
 }
 
 .question {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--gh-text);
-  margin-bottom: 1rem;
-  line-height: 1.6;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gh-text);
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 .options {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .option {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.65rem 0.75rem;
-  border: 1px solid var(--gh-border);
-  border-radius: 6px;
-  background: var(--gh-surface-2);
-  font-size: 0.875rem;
-  color: var(--gh-text);
-  cursor: pointer;
-  text-align: left;
-  transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--gh-border);
+    border-radius: 6px;
+    background: var(--gh-surface-2);
+    font-size: 0.875rem;
+    color: var(--gh-text);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
 }
 
 .option:hover:not(:disabled) {
-  border-color: var(--gh-accent);
-  background: #1c2742;
+    border-color: var(--gh-accent);
+    background: #1c2742;
 }
 
 .option:disabled {
-  cursor: default;
+    cursor: default;
 }
 
 .correct {
-  border-color: var(--gh-success) !important;
-  background: var(--gh-success-bg) !important;
-  color: var(--gh-success);
+    border-color: var(--gh-success) !important;
+    background: var(--gh-success-bg) !important;
+    color: var(--gh-success);
 }
 
 .wrong {
-  border-color: var(--gh-danger) !important;
-  background: var(--gh-danger-bg) !important;
-  color: var(--gh-danger);
+    border-color: var(--gh-danger) !important;
+    background: var(--gh-danger-bg) !important;
+    color: var(--gh-danger);
 }
 
-.optionLetter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  background: var(--gh-border);
-  font-weight: 600;
-  font-size: 0.75rem;
-  color: var(--gh-text-muted);
-  flex-shrink: 0;
+/* Selected but no feedback shown */
+.selected {
+    border-color: var(--gh-accent) !important;
+    background: #0d2137 !important;
+    color: var(--gh-accent-hover);
 }
 
 .optionText {
-  flex: 1;
+    flex: 1;
 }
 
 .iconCorrect {
-  color: var(--gh-success);
-  flex-shrink: 0;
+    color: var(--gh-success);
+    flex-shrink: 0;
 }
 
 .iconWrong {
-  color: var(--gh-danger);
-  flex-shrink: 0;
+    color: var(--gh-danger);
+    flex-shrink: 0;
 }
 
 .feedbackCorrect,
 .feedbackWrong {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  line-height: 1.5;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    line-height: 1.5;
 }
 
 .feedbackCorrect {
-  background: var(--gh-success-bg);
-  color: var(--gh-success);
-  border: 1px solid #2ea04326;
+    background: var(--gh-success-bg);
+    color: var(--gh-success);
+    border: 1px solid #2ea04326;
 }
 
 .feedbackWrong {
-  background: var(--gh-danger-bg);
-  color: var(--gh-danger);
-  border: 1px solid #f8514926;
+    background: var(--gh-danger-bg);
+    color: var(--gh-danger);
+    border: 1px solid #f8514926;
 }
 
 .feedbackTitle {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 0.35rem;
-  font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
 }
 
 .feedbackText {
-  color: var(--gh-text-muted);
-  font-size: 0.82rem;
+    color: var(--gh-text-muted);
+    font-size: 0.82rem;
 }
 
 .nextBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  margin-top: 1rem;
-  width: 100%;
-  padding: 0.625rem 1rem;
-  background-color: var(--gh-btn-secondary-bg);
-  color: var(--gh-text);
-  font-size: 0.875rem;
-  font-weight: 500;
-  border: 1px solid var(--gh-btn-secondary-border);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.625rem 1rem;
+    background-color: var(--gh-btn-secondary-bg);
+    color: var(--gh-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--gh-btn-secondary-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
 }
 
 .nextBtn:hover {
-  background-color: var(--gh-btn-secondary-hover);
-  border-color: var(--gh-text-muted);
+    background-color: var(--gh-btn-secondary-hover);
+    border-color: var(--gh-text-muted);
+}
+
+/* ── Timer ── */
+
+.timerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 99px;
+    border: 1px solid;
+}
+
+.timerBar {
+    width: 100%;
+    height: 3px;
+    background: var(--gh-border-muted);
+    border-radius: 99px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.timerBarFill {
+    height: 100%;
+    border-radius: 99px;
+}
+
+.timerNormal {
+    color: var(--gh-accent);
+    border-color: #1c3a5e;
+    background: #0d2137;
+}
+
+.timerNormal.timerBarFill {
+    background: var(--gh-accent);
+}
+
+.timerWarning {
+    color: #d29922;
+    border-color: #3a2a00;
+    background: #211800;
+}
+
+.timerWarning.timerBarFill {
+    background: #d29922;
+}
+
+.timerDanger {
+    color: var(--gh-danger);
+    border-color: #3a0a09;
+    background: #1a0505;
+}
+
+.timerDanger.timerBarFill {
+    background: var(--gh-danger);
 }

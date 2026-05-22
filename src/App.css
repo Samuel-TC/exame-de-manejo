@@ -1,48 +1,50 @@
 :root {
-  --gh-canvas: #0d1117;
-  --gh-surface: #161b22;
-  --gh-surface-2: #1c2128;
-  --gh-border: #30363d;
-  --gh-border-muted: #21262d;
-  --gh-text: #e6edf3;
-  --gh-text-muted: #8b949e;
-  --gh-accent: #58a6ff;
-  --gh-accent-hover: #79c0ff;
-  --gh-success: #3fb950;
-  --gh-success-bg: #162c1f;
-  --gh-danger: #f85149;
-  --gh-danger-bg: #2d1214;
-  --gh-btn-primary-bg: #238636;
-  --gh-btn-primary-hover: #2ea043;
-  --gh-btn-secondary-bg: #21262d;
-  --gh-btn-secondary-hover: #30363d;
-  --gh-btn-secondary-border: #363b42;
+    --gh-canvas: #0d1117;
+    --gh-surface: #161b22;
+    --gh-surface-2: #1c2128;
+    --gh-border: #30363d;
+    --gh-border-muted: #21262d;
+    --gh-text: #e6edf3;
+    --gh-text-muted: #8b949e;
+    --gh-accent: #58a6ff;
+    --gh-accent-hover: #79c0ff;
+    --gh-success: #3fb950;
+    --gh-success-bg: #162c1f;
+    --gh-danger: #f85149;
+    --gh-danger-bg: #2d1214;
+    --gh-btn-primary-bg: #238636;
+    --gh-btn-primary-hover: #2ea043;
+    --gh-btn-secondary-bg: #21262d;
+    --gh-btn-secondary-hover: #30363d;
+    --gh-btn-secondary-border: #363b42;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-  background-color: var(--gh-canvas);
-  color: var(--gh-text);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background-color: var(--gh-canvas);
+    color: var(--gh-text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
 }
 
 .app {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 1rem;
 }
 
 @media (min-width: 640px) {
-  .app {
-    padding: 2rem 1rem;
-  }
+    .app {
+        padding: 2rem 1rem;
+    }
 }
