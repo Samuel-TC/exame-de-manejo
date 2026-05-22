@@ -4,6 +4,7 @@ export interface Question {
     options: string[]
     correctIndex: number
     explanation: string
+    image?: string   // ruta relativa en src/assets/, opcional
 }
 
 export const questions: Question[] = [
@@ -13,6 +14,7 @@ export const questions: Question[] = [
         options: ['Avanzar con precaución', 'Detenerse completamente', 'Reducir la velocidad', 'Ceder el paso'],
         correctIndex: 1,
         explanation: 'La luz roja indica que el conductor debe detenerse completamente antes de la línea de parada.',
+        image: new URL('../assets/semaforo.jpg', import.meta.url).href,
     },
     {
         id: 2,
@@ -32,6 +34,7 @@ export const questions: Question[] = [
         ],
         correctIndex: 2,
         explanation: 'La señal PARE obliga al conductor a detenerse completamente y ceder el paso antes de continuar.',
+        image: new URL('../assets/senal-pare.jpg', import.meta.url).href,
     },
     {
         id: 4,
@@ -87,6 +90,7 @@ export const questions: Question[] = [
         ],
         correctIndex: 1,
         explanation: 'La línea continua en el centro de la vía prohíbe cruzarla o adelantar.',
+        image: new URL('../assets/linea-continua.jpg', import.meta.url).href,
     },
     {
         id: 9,

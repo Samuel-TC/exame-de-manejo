@@ -1,6 +1,7 @@
 import { CheckCircle2, XCircle, ChevronRight, AlertCircle, Clock, LogOut } from 'lucide-react'
 import type { Question } from '../data/questions'
 import styles from './QuestionCard.module.css'
+import QuestionImage from './QuestionImage.tsx'
 
 interface Props {
     question: Question
@@ -93,6 +94,10 @@ export default function QuestionCard({
             )}
 
             <h2 className={styles.question}>{question.question}</h2>
+
+            {question.image && (
+                <QuestionImage src={question.image} alt={`Imagen: ${question.question}`} />
+            )}
 
             <ul className={styles.options}>
                 {question.options.map((option, i) => (
