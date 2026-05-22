@@ -129,31 +129,31 @@ export default function Quiz() {
 
     return (
         <>
-        {showEndModal && (
-            <div className="modalOverlay">
-                <div className="modalBox">
-                    <h3 className="modalTitle">¿Terminar el examen?</h3>
-                    <p className="modalMsg">Las preguntas que no hayas respondido contarán como incorrectas.</p>
-                    <div className="modalActions">
-                        <button className="modalCancel" onClick={() => setShowEndModal(false)}>Cancelar</button>
-                        <button className="modalConfirm" onClick={confirmEnd}>Sí, terminar</button>
+            {showEndModal && (
+                <div className="modalOverlay">
+                    <div className="modalBox">
+                        <h3 className="modalTitle">¿Terminar el examen?</h3>
+                        <p className="modalMsg">Las preguntas que no hayas respondido contarán como incorrectas.</p>
+                        <div className="modalActions">
+                            <button className="modalCancel" onClick={() => setShowEndModal(false)}>Cancelar</button>
+                            <button className="modalConfirm" onClick={confirmEnd}>Sí, terminar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )}
-        <QuestionCard
-            question={examQuestions[currentIndex]}
-            questionNumber={currentIndex + 1}
-            total={total}
-            selectedAnswer={selectedAnswer}
-            answered={answered}
-            showFeedback={config.showFeedback}
-            timeLeft={timeLeft}
-            timeLimit={config.timePerQuestion}
-            onSelect={handleSelect}
-            onNext={() => advanceToNext(selectedAnswer)}
-            onEnd={handleEnd}
-        />
+            )}
+            <QuestionCard
+                question={examQuestions[currentIndex]}
+                questionNumber={currentIndex + 1}
+                total={total}
+                selectedAnswer={selectedAnswer}
+                answered={answered}
+                showFeedback={config.showFeedback}
+                timeLeft={timeLeft}
+                timeLimit={config.timePerQuestion}
+                onSelect={handleSelect}
+                onNext={() => advanceToNext(selectedAnswer)}
+                onEnd={handleEnd}
+            />
         </>
     )
 }
