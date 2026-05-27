@@ -200,3 +200,14 @@
 .toggleOn .toggleThumb {
   transform: translateX(16px);
 }
+
+@media (max-width: 400px) {
+  .segBtn {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .configLabel {
+    font-size: 0.78rem;
+  }
+}
